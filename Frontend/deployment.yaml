@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-react-app-deployment
+spec:
+  replicas: 3  # Number of pods
+  selector:
+    matchLabels:
+      app: my-react-app
+  template:
+    metadata:
+      labels:
+        app: my-react-app
+    spec:
+      containers:
+      - name: my-react-app
+        image: 57a226bcc415  # Use your local image ID here
+        ports:
+        - containerPort: 3000  # Assuming your React app runs on port 3000

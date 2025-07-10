@@ -1,0 +1,12 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-react-app-service
+spec:
+  type: LoadBalancer  # Exposes the service outside the cluster
+  ports:
+  - port: 80  # Port exposed to outside
+    targetPort: 3000  # Internal port (React app port)
+  selector:
+    app: my-react-app
